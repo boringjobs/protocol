@@ -1,0 +1,23 @@
+{
+  "name": "boringjobs",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "test": "forge test",
+    "inspect": "cannon inspect boringjobs --write-deployments ./deployments",
+    "build-cannonfile": "cannon build cannonfile.toml",
+    "start": "cannon boringjobs",
+    "dev": "cannon boringjobs --registry-priority local",
+    "deploy": "cannon build --chain-id $CHAIN_ID --provider-url $PROVIDER_URL --private-key $PRIVATE_KEY",
+    "verify": "cannon verify boringjobs:latest@main --api-key $ETHERSCAN_API_KEY --chain-id $CHAIN_ID"
+  },
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@usecannon/cli": "^2.11.18"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
