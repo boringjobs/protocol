@@ -1,12 +1,30 @@
 name = "boringjobs"
 version = "<%= package.version %>"
-description = "Simple project to verify the functionality of cannon"
-keywords = ["boring", "jobs", "cannon"]
+description = "Boring Jobs Protocol"
+keywords = ["boring", "jobs", "protocol"]
 
-[setting.msg]
-defaultValue = "Boring Jobs"
-description="The greeting passed to the constructor"
+[contract.StakingRewards]
+artifact = "StakingRewards"
+args = [
+    "0x4200000000000000000000000000000000000006",
+    "0x4200000000000000000000000000000000000006"
+]
 
-[contract.boringjobs]
-artifact = "BoringJobs"
-args = ["<%= settings.msg %>"]
+
+[contract.Pool]
+artifact = "Pool"
+args = [
+    "0x4200000000000000000000000000000000000006",
+    "0x4200000000000000000000000000000000000006"
+]
+
+
+[contract.Request]
+artifact = "Request"
+args = [
+    "Job Name",
+    "Job Description",
+    100,
+    "<%= contracts.Pool.address %>"
+]
+depends = ["contract.Pool"]
